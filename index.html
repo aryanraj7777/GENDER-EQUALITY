@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeCoded 2026 | Prismatic Equity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+        
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #a855f7;
+            --bg: #030014;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(14, 165, 233, 0.6);
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="fixed w-full z-50 p-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card rounded-2xl px-8 py-4">
+            <div class="text-2xl font-bold tracking-tight">WE<span class="text-sky-400 italic">CODED</span></div>
+            <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium opacity-70">
+                <a href="#mission" class="hover:text-sky-400">Mission</a>
+                <a href="#prompts" class="hover:text-sky-400">Challenges</a>
+                <a href="#prizes" class="hover:text-sky-400">Prizes</a>
+            </div>
+            <button class="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-sky-400 transition">DEPLOY POST</button>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
+        <div class="inline-block px-4 py-1 border border-sky-500/50 rounded-full text-sky-400 text-xs tracking-widest uppercase mb-6 bg-sky-500/10">
+            Ninth Anniversary Edition • 2026
+        </div>
+        <h1 class="text-6xl md:text-9xl font-bold mb-6 text-glow leading-none">
+            SHATTER THE <br><span class="text-sky-400">CEILING.</span>
+        </h1>
+        <p class="max-w-xl text-lg opacity-60 mb-12 font-light">
+            We are continuing the celebration of underrepresented voices. Join us through writing and generative art.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6">
+            <a href="#prompts" class="px-12 py-5 bg-sky-500 text-white font-bold rounded-2xl btn-glow hover:-translate-y-1 transition">Get Started</a>
+            <a href="#" class="px-12 py-5 glass-card rounded-2xl font-bold hover:bg-white/10 transition">Read Rules</a>
+        </div>
+    </section>
+
+    <section id="prompts" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div class="glass-card p-12 rounded-[40px]">
+                <div class="w-16 h-16 bg-sky-500/20 rounded-2xl flex items-center justify-center mb-8">
+                    <i class="fa-solid fa-pen-nib text-3xl text-sky-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Echoes of Experience</h2>
+                <p class="opacity-60 text-lg mb-10">
+                    Share your triumphs and challenges. Empower those on a similar path and educate allies on inclusion.
+                </p>
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-center gap-4 text-sm opacity-80">
+                        <span class="w-2 h-2 bg-sky-400 rounded-full"></span>
+                        Writing clarity and impact
+                    </div>
+                    <div class="flex items-center gap-4 text-sm opacity-80">
+                        <span class="w-2 h-2 bg-sky-400 rounded-full"></span>
+                        Personal originality
+                    </div>
+                </div>
+                <button class="w-full py-5 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white hover:text-black transition">Writing Template</button>
+            </div>
+
+            <div class="glass-card p-12 rounded-[40px] border-purple-500/20">
+                <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-8">
+                    <i class="fa-solid fa-palette text-3xl text-purple-400"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Frontend Art: Equity</h2>
+                <p class="opacity-60 text-lg mb-10">
+                    Represent gender equity through code. Use CSS, SVG, or Canvas to visualize the strength of community.
+                </p>
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-center gap-4 text-sm opacity-80">
+                        <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+                        Creative execution
+                    </div>
+                    <div class="flex items-center gap-4 text-sm opacity-80">
+                        <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+                        Technical aesthetic outcome
+                    </div>
+                </div>
+                <button class="w-full py-5 bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white hover:text-black transition">Canvas Template</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = Math.random() > 0.5 ? '#0ea5e9' : '#a855f7';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+
+                // Mouse interaction
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < 150) {
+                    this.x -= dx/20;
+                    this.y -= dy/20;
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = 0.3;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function connect() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let dx = particles[a].x - particles[b].x;
+                    let dy = particles[a].y - particles[b].y;
+                    let distance = Math.sqrt(dx*dx + dy*dy);
+
+                    if (distance < 150) {
+                        ctx.strokeStyle = particles[a].color;
+                        ctx.globalAlpha = 1 - (distance/150);
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            connect();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+    </script>
+</body>
+</html>
